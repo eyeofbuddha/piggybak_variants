@@ -20,7 +20,7 @@ module PiggybakVariants
       # TODO: Add verification to prevent duplicate option value sets
 
       klass = self.item.class
-      options = ::PiggybakVariants::OptionConfiguration.find_all_by_klass(klass).collect { |oc| oc.option }
+      options = ::PiggybakVariants::OptionConfiguration.where(klass: klass).collect { |oc| oc.option }
       error = false
       options.each do |option|
         matching_option_values = self.option_values.select { |ov| ov.option == option }.size

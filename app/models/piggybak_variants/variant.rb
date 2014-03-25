@@ -5,6 +5,7 @@ module PiggybakVariants
     acts_as_sellable
     belongs_to :item, :polymorphic => true
     has_and_belongs_to_many :option_values
+    accepts_nested_attributes_for :piggybak_sellables
 
     attr_accessible :option_value_ids, :piggybak_sellable_attributes, :name, :item_id, :item_type
 

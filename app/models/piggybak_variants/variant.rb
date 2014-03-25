@@ -7,7 +7,7 @@ module PiggybakVariants
     has_and_belongs_to_many :option_values
     accepts_nested_attributes_for :piggybak_sellable
 
-    attr_accessible :option_value_ids, :piggybak_sellable_attributes, :name, :item_id, :item_type
+    attr_accessible :option_value_ids, :piggybak_sellable_attributes, :name, :item_id, :item_type, :title
 
     scope :available, ->{ joins(:piggybak_sellable).where(["sellables.active = ? AND (sellables.quantity > 0 OR sellables.unlimited_inventory = ?)",true,true]) }
     # validate :option_value_validation

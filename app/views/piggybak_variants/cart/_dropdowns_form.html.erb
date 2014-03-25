@@ -6,15 +6,12 @@
 	</script>
 
 	<div class="variant_options">
-		<% options_for_klass(object.class).each do |option| -%>
 		<div class="option" id="option_<%= option.id %>">
-		<h4><%= option.name %></h4>
-		<%= select_tag option.name, options_for_select(option.option_values.map{ |o| [o.name, o.id] }), include_blank: true %>
+		<h4>Variants: </h4>
+		<%= select_tag 'variant', options_for_select(variant_map.each{ |o| [o.title, o.id] }), include_blank: false %>
 		<br />
 		</div>
 		<% end -%>
-		<span class="all_selected">You must select a choice from each option.</span>
-		<span class="unavailable">This combination is not available.</span>
 		<%= form_tag piggybak.cart_add_url do -%>
 		<input type="hidden" id="sellable_id" name="sellable_id" />
 		<div id="variant_price">Price: <span></span></div>

@@ -10,7 +10,7 @@ module PiggybakVariants
     attr_accessible :option_value_ids, :piggybak_sellable_attributes, :name, :item_id, :item_type
 
     scope :available, ->{ joins(:piggybak_sellable).where(["sellables.active = ? AND (sellables.quantity > 0 OR sellables.unlimited_inventory = ?)",true,true]) }
-    validate :option_value_validation
+    # validate :option_value_validation
 
     def admin_label
       "#{self.piggybak_sellable.sku}: #{self.piggybak_sellable.price}"

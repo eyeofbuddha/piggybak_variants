@@ -5,6 +5,7 @@ var piggybak_variants = {
 			$('.variant_options form').show();
 			$('#sellable_id').val(selected_key);
 			$('#variant_price span').html(variant_map[selected_key].price);
+			$('span[itemprop="sku"]').html(variant_map[selected_key].sku);
 		} else { 
 			$('.variant_options form').hide();
 			$('.unavailable').show();

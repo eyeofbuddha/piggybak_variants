@@ -3,7 +3,7 @@ module PiggybakVariants
     self.table_name = "variants"
 
     acts_as_sellable
-    belongs_to :item, :polymorphic => true
+    belongs_to :item, :polymorphic => true, :touch => true
     has_and_belongs_to_many :option_values
     accepts_nested_attributes_for :piggybak_sellable
 
